@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Sluggard',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      home: const Dashboard(),
+      home: const Login(title: 'Login',),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:sluggard/ui/progress/charts/bar_chart.dart';
 
 class ProgressScreen extends StatefulWidget {
   const ProgressScreen({Key? key}) : super(key: key);
@@ -19,7 +20,13 @@ class _ProgressScreenState extends State<ProgressScreen> {
         ),
       ),
       body: SafeArea(
-        child: Container(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SimpleBarChart.withSampleData()
+          ],
+        ),
       ),
     );
   }
