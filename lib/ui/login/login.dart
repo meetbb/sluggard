@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sluggard/ui/utils/dialog_utils.dart';
 
 import '../utils/text_field_container.dart';
 
@@ -12,7 +13,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-
   TextEditingController emailController = TextEditingController();
 
   @override
@@ -84,6 +84,10 @@ class _LoginState extends State<Login> {
                   onPressed: () {
                     if (!isValidEmail(emailController.text.trim())) {
                       debugPrint("Email Id is invalid.");
+                      showDialog(
+                          context: context,
+                          builder: (ctx) => showNormalDialog(
+                              context: ctx, message: "Please enter valid email address."));
                     }
                   },
                   style: ElevatedButton.styleFrom(
@@ -147,7 +151,8 @@ class _LoginState extends State<Login> {
   }
 
   bool isValidEmail(String email) {
-    return RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-      .hasMatch(email);
+    return RegExp(
+            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+        .hasMatch(email);
   }
 }
